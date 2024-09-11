@@ -16,43 +16,33 @@ import DesignPortfolio from './components/DesignPortfolio/DesignPortfolio.jsx';
 import Certifications from './components/Certifications/Certifications.jsx';
 import Transcript from './components/Transcript/Transcript.jsx';
 
-
 // all components in application used inside of react-router dom
 function App() {
   return (
-    <Router>
+    // เพิ่ม basename ให้ Router เพื่อให้เส้นทางถูกต้องเมื่อ deploy ใน subdirectory
+    <Router basename="/port_narong">
       <Header />
       <Routes>
-        <Route path="/" element={
-          <>
-            
-            <About />
-            <TechStackCarousel />
-            <Description />
-            <Portfolio />
-            <Activity />
-            <Contact />
-          </>
-        }
+        <Route
+          path="/"
+          element={
+            <>
+              <About />
+              <TechStackCarousel />
+              <Description />
+              <Portfolio />
+              <Activity />
+              <Contact />
+            </>
+          }
         />
-      
-        <Route path="/design-portfolio" element={
-          <DesignPortfolio />
-        }
-        />
-        <Route path="/certifications" element={
-          <Certifications />
-        }
-        />
-        <Route path="/transcript" element={
-          <Transcript />
-        }
-        />
+        <Route path="/design-portfolio" element={<DesignPortfolio />} />
+        <Route path="/certifications" element={<Certifications />} />
+        <Route path="/transcript" element={<Transcript />} />
       </Routes>
       <Footer />
     </Router>
-  )
+  );
 }
 
-
-export default App
+export default App;

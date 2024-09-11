@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/port_narong/"
+  base: process.env.NODE_ENV === 'production' ? '/port_narong/' : '/',
 })
